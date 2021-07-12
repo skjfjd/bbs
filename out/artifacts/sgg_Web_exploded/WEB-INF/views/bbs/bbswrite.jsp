@@ -23,21 +23,21 @@
     <tr>
         <th>제목</th>
         <td style="text-align: left">
-            <input   type="text" name="title" size="60">
+            <input type="text" name="title" id="_title" size="60">
         </td>
     </tr>
 
     <tr>
         <th>내용</th>
         <td style="text-align: left">
-            <textarea rows="10" cols="50" name="content" id="_content"></textarea>
+            <textarea rows="18" cols="59" name="content" id="_content" style="resize: none" id="_content"></textarea>
         </td>
     </tr>
 
     <tr>
         <td colspan="2" style="height: 50px; text-align: center;">
             <span>
-                <a href="#none" id="_btnLogin" title="글쓰기">
+                <a href="#none" id="_btnWrite" title="글쓰기">
                     <img src="./image/bwrite.png" alt="로그인">
                 </a>
             </span>
@@ -49,8 +49,26 @@
 </form>
 
 <script type="text/javascript">
-    $("#_btnLogin").click(function (){
-        alert("글작성");
-        $("#_frmForm").attr({"target":"_self" , "action":"bbswriteAf.do"}).submit();
+    $("#_btnWrite").click(function (){
+
+        if ($("#_title").val()) {
+            $("#_content").val("");
+            alert("내용을 입력해주세요");
+        } else if ($("#_content").val()){
+            $("#_title").val("");
+            alert("제목을 입력해주세요");
+        } else if ($("#_title").val("") && $("#_content").val("")) {
+            alert("제목과 내용을 입력해주세요");
+        } else {
+            $.ajax({
+                url:"writeAf.do",
+                type:"post",
+                data:{btnWrite:$("#_content").val() && $("#_title").val()},
+
+            })
+            }
+
+
+
     });
 </script>
