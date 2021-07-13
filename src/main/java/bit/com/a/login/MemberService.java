@@ -12,4 +12,6 @@ public interface MemberService {
     boolean addMember(MemberDto mem);
 
     MemberDto login(MemberDto dto);
+
+
 }

@@ -78,4 +78,10 @@ public class MemberController {
     public String sessionOut() {
         return "sessionOut.tiles";
     }
+
+    @RequestMapping(value = "logout.do", method = {RequestMethod.POST, RequestMethod.GET})
+    public String logout() {
+
+        return "redirect:/login.do";
+    }
 }

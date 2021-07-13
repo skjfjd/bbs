@@ -37,13 +37,15 @@
     <tr>
         <th>내용</th>
         <td style="text-align: left"><textarea rows="10" cols="50"
-            name="content" id="_content">${bbs.content}</textarea> </td>
+            name="content" id="_content" style="resize: none">${bbs.content}</textarea> </td>
     </tr>
 
     <tr>
         <td colspan="2" style="height: 50px; text-align: center;">
             <span>
-                <a href="#none" id="_btnUpdate" title="글수정하기"> <img src="./image/bupdate.png" alt="수정하기"> </a>
+                <a href="#none" id="_btnUpdate" title="글수정하기">
+                    <img src="./image/bupdate.png" alt="수정하기">
+                </a>
             </span>
         </td>
     </tr>

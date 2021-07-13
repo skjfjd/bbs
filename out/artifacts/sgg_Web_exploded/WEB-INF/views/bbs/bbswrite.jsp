@@ -51,24 +51,17 @@
 <script type="text/javascript">
     $("#_btnWrite").click(function (){
 
-        if ($("#_title").val()) {
-            $("#_content").val("");
-            alert("내용을 입력해주세요");
-        } else if ($("#_content").val()){
-            $("#_title").val("");
+        if ($("#_title").val() =="") {
             alert("제목을 입력해주세요");
-        } else if ($("#_title").val("") && $("#_content").val("")) {
-            alert("제목과 내용을 입력해주세요");
+        } else if ($("#_content").val()==""){
+            alert("내용을 입력해주세요");
         } else {
-            $.ajax({
-                url:"writeAf.do",
-                type:"post",
-                data:{btnWrite:$("#_content").val() && $("#_title").val()},
-
-            })
+            if ($("#_title").val() && $("#_content").val()) {
+                alert("글작성완료");
+                $("#_frmForm").attr({"target":"_self" , "action":"bbswriteAf.do"}).submit();
             }
 
-
+        }
 
     });
 </script>

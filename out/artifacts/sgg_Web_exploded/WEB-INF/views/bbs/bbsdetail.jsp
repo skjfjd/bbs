@@ -57,17 +57,17 @@
 
     $("#_btnUpdate").click(function (){
         alert("글수정하기");
-        $("#_frmForm").attr({"target": "_self", "action": "bbsupdate.do"}).submit();
+        $("#_frmForm").attr({"target": "_self", "action": "bbsupdate.do"}).submit();  // 업데이트도 시퀀스와 dto
     });
 
     $("#_btnReply").click(function (){
         alert("답글달기");
-        $("#_frmForm").attr({"target": "_self", "action": "answer.do"}).submit();
+        $("#_frmForm").attr({"target": "_self", "action": "answer.do"}).submit();   // 답글은  시퀀스와 dto
     });
 
     $("#_btnDel").click(function (){
         alert("글이 삭제되었습니다.");
-        $("_frmForm").attr({"target": "_self", "action": "bbsdelete.do"}).submit();
+        $("#_frmForm").attr({"target": "_self", "action": "bbsdelete.do"}).submit();  // 삭제는 시퀀스
     });
 
 </script>

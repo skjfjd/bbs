@@ -67,8 +67,8 @@ public class BbsController {
         return "bbswrite.tiles";
     }
 
-    @RequestMapping(value = "bbswriteAf.do" , method = RequestMethod.POST)
-    public String bbswriteAf(BbsDto bbs, Model model) throws Exception{
+    @RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
+    public String bbswriteAf(BbsDto bbs, Model model) throws Exception {
         if (bbs.getContent().equals("") || bbs.getTitle().equals("")) {
             return "bbswrite.tiles";
         }
@@ -76,12 +76,12 @@ public class BbsController {
         return "redirect:/bbslist.do";
     }
 
-    @RequestMapping(value = "bbsdetail.do" , method = RequestMethod.GET)
-    public String bbsdetail(int seq , Model model) {
+    @RequestMapping(value = "bbsdetail.do", method = RequestMethod.GET)
+    public String bbsdetail(int seq, Model model) {
         model.addAttribute("doc_title", "상세글 보기");
 
         BbsDto bbs = service.getBbs(seq);
-        model.addAttribute("bbs" , bbs);
+        model.addAttribute("bbs", bbs);
 
         return "bbsdetail.tiles";
     }
@@ -101,12 +101,12 @@ public class BbsController {
         return "redirect:/bbslist.do";
     }
 
-    @RequestMapping(value = "answer.do" , method = {RequestMethod.GET , RequestMethod.POST})
-    public String answer(int seq , Model model)throws  Exception{
-        BbsDto bbs = null;
-         bbs = service.getBbs(seq);
-         model.addAttribute("bbs" , bbs);
-         return "answer.tiles";
+    @RequestMapping(value = "answer.do", method = {RequestMethod.GET, RequestMethod.POST})
+    public String answer(int seq, Model model) throws Exception {
+
+       BbsDto bbs = service.getBbs(seq);
+        model.addAttribute("bbs", bbs);
+        return "answer.tiles";
     }
 
     @RequestMapping(value = "answerAf.do", method = {RequestMethod.GET, RequestMethod.POST})
@@ -115,4 +115,13 @@ public class BbsController {
 
         return "redirect:/bbslist.do";
     }
+
+    @RequestMapping(value = "bbsdelete.do", method = {RequestMethod.GET, RequestMethod.POST})
+    public String deleteBbs(int seq) {
+        service.deleteBbs(seq);
+
+        return "redirect:/bbslist.do";
+    }
 }
+
+
